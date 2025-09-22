@@ -9,106 +9,149 @@
       margin: 0;
       padding: 0;
       height: 100vh;
-      background: linear-gradient(to top, #fff0b3, #ffd6e7);
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(to top, #a3d977, #f9f9f9);
       overflow: hidden;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
     }
 
     h1 {
-      color: #d63384;
-      font-size: 2rem;
+      position: absolute;
+      top: 30px;
+      font-size: 26px;
       text-align: center;
-      margin-bottom: 20px;
-      animation: pulse 2s infinite;
+      color: #444;
+      background: rgba(255, 255, 255, 0.7);
+      padding: 10px 20px;
+      border-radius: 15px;
     }
 
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-      100% { transform: scale(1); }
+    .garden {
+      display: flex;
+      gap: 30px;
+      align-items: flex-end;
+      justify-content: center;
+      height: 80%;
     }
 
     .flower {
-      position: absolute;
       width: 60px;
-      height: 60px;
-      background: pink;
-      border-radius: 50%;
-      animation: float 8s infinite ease-in-out;
-      opacity: 0.8;
+      height: 200px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      animation: grow 3s ease-in-out forwards;
+      transform-origin: bottom center;
     }
 
-    @keyframes float {
-      0% {
-        transform: translateY(100vh) rotate(0deg);
-        opacity: 0;
-      }
-      30% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-10vh) rotate(360deg);
-        opacity: 0;
-      }
+    .stem {
+      width: 6px;
+      height: 0;
+      background: green;
+      border-radius: 3px;
+      animation: stemGrow 3s ease forwards;
     }
 
-    .petal {
+    .petals {
       position: absolute;
-      width: 20px;
-      height: 20px;
-      background: #ff69b4;
+      bottom: 160px;
+      width: 80px;
+      height: 80px;
+      background: transparent;
       border-radius: 50%;
+      opacity: 0;
+      animation: bloom 3s 2s forwards;
     }
 
-    .petal:nth-child(1) { top: 0; left: 20px; }
-    .petal:nth-child(2) { top: 20px; left: 40px; }
-    .petal:nth-child(3) { top: 40px; left: 20px; }
-    .petal:nth-child(4) { top: 20px; left: 0; }
-    .center {
+    .petals span {
       position: absolute;
-      top: 20px;
-      left: 20px;
-      width: 20px;
-      height: 20px;
+      width: 30px;
+      height: 50px;
       background: yellow;
       border-radius: 50%;
+      top: 15px;
+      left: 25px;
+      transform-origin: center bottom;
+    }
+
+    .petals span:nth-child(1) { transform: rotate(0deg) translateY(-30px); }
+    .petals span:nth-child(2) { transform: rotate(72deg) translateY(-30px); }
+    .petals span:nth-child(3) { transform: rotate(144deg) translateY(-30px); }
+    .petals span:nth-child(4) { transform: rotate(216deg) translateY(-30px); }
+    .petals span:nth-child(5) { transform: rotate(288deg) translateY(-30px); }
+
+    .center {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background: orange;
+      border-radius: 50%;
+      top: 25px;
+      left: 25px;
+      opacity: 0;
+      animation: bloomCenter 2s 2.5s forwards;
+    }
+
+    @keyframes grow {
+      from { transform: scaleY(0); }
+      to { transform: scaleY(1); }
+    }
+
+    @keyframes stemGrow {
+      from { height: 0; }
+      to { height: 160px; }
+    }
+
+    @keyframes bloom {
+      from { opacity: 0; transform: scale(0.5); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes bloomCenter {
+      from { opacity: 0; transform: scale(0.3); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    audio {
+      display: none;
     }
   </style>
 </head>
 <body>
-  <h1>💛 Por ser una chica especial estas flores son para ti, Deysy 💛</h1>
+  <h1>🌼 Por ser una chica especial estas flores son para ti, Deysy 🌼</h1>
 
-  <script>
-    function createFlower() {
-      const flower = document.createElement('div');
-      flower.classList.add('flower');
-      flower.style.left = Math.random() * window.innerWidth + 'px';
-      flower.style.animationDuration = (5 + Math.random() * 5) + 's';
+  <div class="garden">
+    <div class="flower">
+      <div class="stem"></div>
+      <div class="petals">
+        <span></span><span></span><span></span><span></span><span></span>
+        <div class="center"></div>
+      </div>
+    </div>
+    <div class="flower">
+      <div class="stem"></div>
+      <div class="petals">
+        <span></span><span></span><span></span><span></span><span></span>
+        <div class="center"></div>
+      </div>
+    </div>
+    <div class="flower">
+      <div class="stem"></div>
+      <div class="petals">
+        <span></span><span></span><span></span><span></span><span></span>
+        <div class="center"></div>
+      </div>
+    </div>
+  </div>
 
-      // pétalos
-      for (let i = 0; i < 4; i++) {
-        const petal = document.createElement('div');
-        petal.classList.add('petal');
-        flower.appendChild(petal);
-      }
-
-      // centro
-      const center = document.createElement('div');
-      center.classList.add('center');
-      flower.appendChild(center);
-
-      document.body.appendChild(flower);
-
-      setTimeout(() => {
-        flower.remove();
-      }, 10000);
-    }
-
-    setInterval(createFlower, 800);
-  </script>
+  <!-- Música de fondo -->
+  <audio autoplay loop>
+    <source src="https://www.dropbox.com/scl/fi/mf42frk1bbmtkm10rrm0m/flores-amarillas.mp3?dl=1" type="audio/mpeg">
+    Tu navegador no soporta audio.
+  </audio>
 </body>
 </html>
