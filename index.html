@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flores para Deysy</title>
+  <title>Girasoles para Deysy</title>
   <style>
     body {
       margin: 0;
@@ -13,7 +13,7 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      background: linear-gradient(to top, #a3d977, #f9f9f9);
+      background: linear-gradient(to top, #7cd957 20%, #aee6ff 100%);
       overflow: hidden;
       font-family: 'Comic Sans MS', cursive, sans-serif;
     }
@@ -21,25 +21,26 @@
     h1 {
       position: absolute;
       top: 30px;
-      font-size: 26px;
+      font-size: 28px;
       text-align: center;
-      color: #444;
-      background: rgba(255, 255, 255, 0.7);
+      color: #2d2d2d;
+      background: rgba(255, 255, 255, 0.8);
       padding: 10px 20px;
       border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
 
     .garden {
       display: flex;
-      gap: 30px;
+      gap: 40px;
       align-items: flex-end;
       justify-content: center;
       height: 80%;
     }
 
-    .flower {
-      width: 60px;
-      height: 200px;
+    .sunflower {
+      width: 70px;
+      height: 220px;
       position: relative;
       display: flex;
       justify-content: center;
@@ -49,49 +50,52 @@
     }
 
     .stem {
-      width: 6px;
+      width: 8px;
       height: 0;
       background: green;
-      border-radius: 3px;
+      border-radius: 4px;
       animation: stemGrow 3s ease forwards;
     }
 
     .petals {
       position: absolute;
-      bottom: 160px;
-      width: 80px;
-      height: 80px;
+      bottom: 170px;
+      width: 100px;
+      height: 100px;
       background: transparent;
       border-radius: 50%;
       opacity: 0;
-      animation: bloom 3s 2s forwards;
+      animation: bloom 2s 2s forwards;
     }
 
     .petals span {
       position: absolute;
-      width: 30px;
-      height: 50px;
-      background: yellow;
+      width: 35px;
+      height: 55px;
+      background: #ffcc00;
       border-radius: 50%;
-      top: 15px;
-      left: 25px;
+      top: 20px;
+      left: 32px;
       transform-origin: center bottom;
     }
 
-    .petals span:nth-child(1) { transform: rotate(0deg) translateY(-30px); }
-    .petals span:nth-child(2) { transform: rotate(72deg) translateY(-30px); }
-    .petals span:nth-child(3) { transform: rotate(144deg) translateY(-30px); }
-    .petals span:nth-child(4) { transform: rotate(216deg) translateY(-30px); }
-    .petals span:nth-child(5) { transform: rotate(288deg) translateY(-30px); }
+    .petals span:nth-child(1) { transform: rotate(0deg) translateY(-35px); }
+    .petals span:nth-child(2) { transform: rotate(45deg) translateY(-35px); }
+    .petals span:nth-child(3) { transform: rotate(90deg) translateY(-35px); }
+    .petals span:nth-child(4) { transform: rotate(135deg) translateY(-35px); }
+    .petals span:nth-child(5) { transform: rotate(180deg) translateY(-35px); }
+    .petals span:nth-child(6) { transform: rotate(225deg) translateY(-35px); }
+    .petals span:nth-child(7) { transform: rotate(270deg) translateY(-35px); }
+    .petals span:nth-child(8) { transform: rotate(315deg) translateY(-35px); }
 
     .center {
       position: absolute;
-      width: 30px;
-      height: 30px;
-      background: orange;
+      width: 40px;
+      height: 40px;
+      background: brown;
       border-radius: 50%;
-      top: 25px;
-      left: 25px;
+      top: 30px;
+      left: 30px;
       opacity: 0;
       animation: bloomCenter 2s 2.5s forwards;
     }
@@ -103,7 +107,7 @@
 
     @keyframes stemGrow {
       from { height: 0; }
-      to { height: 160px; }
+      to { height: 170px; }
     }
 
     @keyframes bloom {
@@ -116,42 +120,48 @@
       to { opacity: 1; transform: scale(1); }
     }
 
-    audio {
+    /* Ocultar iframe del audio */
+    iframe {
       display: none;
     }
   </style>
 </head>
 <body>
-  <h1>🌼 Por ser una chica especial estas flores son para ti, Deysy 🌼</h1>
+  <h1>🌻 Por ser una chica especial, estos girasoles son para ti Deysy 🌻</h1>
 
   <div class="garden">
-    <div class="flower">
+    <div class="sunflower">
       <div class="stem"></div>
       <div class="petals">
-        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
         <div class="center"></div>
       </div>
     </div>
-    <div class="flower">
+
+    <div class="sunflower">
       <div class="stem"></div>
       <div class="petals">
-        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
         <div class="center"></div>
       </div>
     </div>
-    <div class="flower">
+
+    <div class="sunflower">
       <div class="stem"></div>
       <div class="petals">
-        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
         <div class="center"></div>
       </div>
     </div>
   </div>
 
-  <!-- Música de fondo -->
-  <audio autoplay loop>
-    <source src="https://www.dropbox.com/scl/fi/mf42frk1bbmtkm10rrm0m/flores-amarillas.mp3?dl=1" type="audio/mpeg">
-    Tu navegador no soporta audio.
-  </audio>
+  <!-- Música de YouTube (Flores Amarillas) -->
+  <iframe width="0" height="0"
+    src="https://www.youtube.com/embed/S7gMzYqXIZc?autoplay=1&loop=1&playlist=S7gMzYqXIZc"
+    frameborder="0" allow="autoplay; encrypted-media">
+  </iframe>
 </body>
 </html>
